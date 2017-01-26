@@ -35,7 +35,7 @@
                     var name = $field.attr('name');
                     fields[name] = $(field).val();
                 }
-            });
+            })
             console.log(fields);
             return fields;
         },
