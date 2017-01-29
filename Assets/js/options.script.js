@@ -1,12 +1,12 @@
 /**
  * Created by root on 25/01/17.
  */
-(function () {
+(function(){
     //ON LOAD POPUP THE MODAL
     var button = $('.ModalButton');
     button.hide().click();
 
-    $('.close').on('click',function () {
+    $('.close').on('click', function(){
         window.close();
     });
 
@@ -32,14 +32,14 @@
             }
         },
 
-        submitHandler: function (form) {
+        submitHandler: function(form){
             var fields = window.cm.getParamsFromForm(form);
             window.cm.setParams(fields);
         }
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-        cm.getParams(cm.setParamsToForm)
+    $(document).bind('DOMContentLoaded', function(){
+        cm.getParams(cm.setParamsToForm);
     });
 
 })();

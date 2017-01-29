@@ -3,26 +3,18 @@
 // found in the LICENSE file.
 
 
-(function () {
-    var current = 1;
-
-    function updateIcon() {
-        var file = "./Assets/img/icon-" + current + ".png";
-        chrome.browserAction.setIcon({path: file});
-
-        current++;
-        if (current > 2) {
-            current = 1;
-        }
-
-    }
-
-    //ON CLICK UPDATE THE ICON
-    chrome.browserAction.onClicked.addListener(function () {
-        updateIcon();
+(function(){
+    cm.updateIcons('icon-1');
+    chrome.browserAction.onClicked.addListener(function(){
+        cm.updateIcons('icon-2');
+        //get the new Params
         cm.getParams(ws.init);
-
     });
-    updateIcon();
 
+
+    chrome.tabs.onRemoved.addListener(function(tabId, removeInfo){
+        if(cm.tabId&&tabId==tabId){
+            cm.tabId = '';
+        }
+    })
 })();
