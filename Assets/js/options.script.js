@@ -1,14 +1,16 @@
 /**
  * Created by root on 25/01/17.
  */
-(function () {
+(function(){
     //ON LOAD POPUP THE MODAL
-    var button = $('.ModalButton');
-    button.hide().click();
+    var submitButton = document.querySelector('.ModalButton');
+    submitButton.style.display = 'none';
+    submitButton.click();
 
-    $('.close').on('click',function () {
-        window.close();
-    });
+    //ON CLOSE BUTTON
+    var closeButton = document.querySelector('.close');
+    closeButton.onclick = function(){};
+
 
     //FORM VALIDATION
     var form = $('.formOptions');
@@ -32,14 +34,14 @@
             }
         },
 
-        submitHandler: function (form) {
+        submitHandler: function(form){
             var fields = window.cm.getParamsFromForm(form);
             window.cm.setParams(fields);
         }
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-        cm.getParams(cm.setParamsToForm)
+    document.addEventListener('DOMContentLoaded', function(){
+        cm.getParams(cm.setParamsToForm);
     });
 
 })();
